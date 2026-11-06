@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RS Fashion — Premium Fashion Store</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f7f5f2;color:#171717}
+a{text-decoration:none;color:inherit}
+header{position:sticky;top:0;z-index:10;background:#111;color:#fff;padding:16px 6%;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:25px;font-weight:800;letter-spacing:1px}
+nav{display:flex;gap:25px;font-size:14px}
+.hero{min-height:620px;padding:90px 7%;display:flex;align-items:center;background:linear-gradient(120deg,#171717 0%,#332b27 55%,#8c6a52 100%);color:#fff}
+.hero-content{max-width:600px}
+.tag{letter-spacing:3px;color:#d8b08c;font-size:13px;font-weight:bold}
+h1{font-size:clamp(42px,7vw,78px);line-height:.95;margin:18px 0}
+.hero p{font-size:17px;line-height:1.7;color:#ddd;max-width:520px}
+.btn{display:inline-block;margin-top:28px;padding:14px 26px;background:#fff;color:#111;border-radius:3px;font-weight:bold}
+section{padding:75px 7%}
+.title{text-align:center;margin-bottom:40px}
+.title h2{font-size:34px}
+.title p{margin-top:10px;color:#777}
+.categories,.products{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.cat,.card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 8px 30px #0000000d}
+.cat{padding:45px 25px;text-align:center}
+.cat span{font-size:45px}
+.cat h3{margin-top:15px}
+.card img{width:100%;height:300px;object-fit:cover;background:#ddd}
+.card-body{padding:20px}
+.card h3{margin-bottom:8px}
+.price{font-weight:bold;font-size:19px}
+.buy{display:block;margin-top:15px;background:#111;color:#fff;text-align:center;padding:12px;border-radius:5px}
+.about{background:#171717;color:#fff;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.about p{color:#ccc;line-height:1.8;margin-top:18px}
+.contact{text-align:center}
+footer{background:#111;color:#aaa;text-align:center;padding:30px}
+@media(max-width:800px){
+ nav{display:none}.hero{min-height:540px;padding:65px 7%}
+ .categories,.products,.about{grid-template-columns:1fr}
+ section{padding:55px 6%}
+ .card img{height:260px}
+}
+.logo span{font-weight:400;color:#d8b08c}.social{display:flex;justify-content:center;gap:12px;margin-top:22px}.social a{border:1px solid #ddd;padding:10px 16px;border-radius:5px;font-size:14px}@media(max-width:800px){.social{flex-wrap:wrap}}\n</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">RS <span>FASHION</span></div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#shop">Shop</a><a href="#jersey">Jersey</a><a href="#teams">Teams</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="tag">RS FASHION • NEW COLLECTION 2026</div>
+    <h1>Style That<br>Speaks.</h1>
+    <p>RS Fashion-এর সাথে আপনার স্টাইলকে দিন নতুন পরিচয়। আধুনিক ডিজাইন, প্রিমিয়াম লুক এবং আপনার পছন্দের ফ্যাশন এক জায়গায়।</p>
+    <a class="btn" href="#jersey">JERSEY COLLECTION →</a>
+  </div>
+</section>
+
+<section>
+  <div class="title">
+    <h2>Shop by Category</h2>
+    <p>আপনার পছন্দের ক্যাটাগরি বেছে নিন</p>
+  </div>
+  <div class="categories">
+    <div class="cat"><span>👔</span><h3>Men's Fashion</h3></div>
+    <div class="cat"><span>👗</span><h3>Women's Fashion</h3></div>
+    <div class="cat"><span>👟</span><h3>Footwear & Accessories</h3></div>
+  </div>
+</section>
+
+
+
+<section id="teams">
+  <div class="title">
+    <div class="tag">POPULAR TEAMS</div>
+    <h2 style="margin-top:12px">Team Jersey Collection</h2>
+    <p>আপনার পছন্দের টিমের জার্সি বেছে নিন</p>
+  </div>
+  <div class="categories">
+    <a class="cat" href="#jersey"><span>🇧🇷</span><h3>Brazil</h3><p>Brazil Jersey</p></a>
+    <a class="cat" href="#jersey"><span>🇦🇷</span><h3>Argentina</h3><p>Argentina Jersey</p></a>
+    <a class="cat" href="#jersey"><span>⚪</span><h3>Real Madrid</h3><p>Real Madrid Jersey</p></a>
+    <a class="cat" href="#jersey"><span>🔵🔴</span><h3>Barcelona</h3><p>Barcelona Jersey</p></a>
+    <a class="cat" href="#jersey"><span>🔵🔴</span><h3>PSG</h3><p>PSG Jersey</p></a>
+    <a class="cat" href="#jersey"><span>🔴</span><h3>Liverpool</h3><p>Liverpool Jersey</p></a>
+  </div>
+</section>
+
+<section id="jersey">
+  <div class="title">
+    <div class="tag">RS FASHION • JERSEY COLLECTION</div>
+    <h2 style="margin-top:12px">Football Jersey</h2>
+    <p>আপনার পছন্দের টিম ও প্লেয়ারের জার্সি অর্ডার করুন</p>
+  </div>
+  <div class="products">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&w=900&q=80" alt="Football Jersey">
+      <div class="card-body"><h3>Premium Football Jersey</h3><div class="price">৳ 899</div><a class="buy" href="https://wa.me/8801309835338" target="_blank">WhatsApp Order</a></div>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=900&q=80" alt="Football Jersey">
+      <div class="card-body"><h3>Club Jersey</h3><div class="price">৳ 999</div><a class="buy" href="https://wa.me/8801309835338" target="_blank">WhatsApp Order</a></div>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=900&q=80" alt="Football Jersey">
+      <div class="card-body"><h3>Custom Name Jersey</h3><div class="price">৳ 1,099</div><a class="buy" href="https://wa.me/8801309835338" target="_blank">WhatsApp Order</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="shop">
+  <div class="title">
+    <h2>Featured Products</h2>
+    <p>RS Fashion-এর নির্বাচিত কালেকশন</p>
+  </div>
+  <div class="products">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=80" alt="Premium T Shirt">
+      <div class="card-body"><h3>Premium T-Shirt</h3><div class="price">৳ 850</div><a class="buy" href="https://wa.me/8801309835338" target="_blank">Order Now</a></div>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80" alt="Fashion Shoes">
+      <div class="card-body"><h3>Classic Sneakers</h3><div class="price">৳ 2,450</div><a class="buy" href="https://wa.me/8801309835338" target="_blank">Order Now</a></div>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=900&q=80" alt="Fashion Shirt">
+      <div class="card-body"><h3>Premium Shirt</h3><div class="price">৳ 1,250</div><a class="buy" href="https://wa.me/8801309835338" target="_blank">Order Now</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div><div class="tag">ABOUT RS FASHION</div><h2 style="font-size:40px;margin-top:15px">Fashion for Every Moment.</h2></div>
+  <div><p>RS Fashion একটি আধুনিক ফ্যাশন ব্র্যান্ড, যেখানে স্টাইল, কোয়ালিটি এবং সাশ্রয়ী দামের সমন্বয় করা হয়েছে। আপনার প্রতিদিনের লুক থেকে বিশেষ দিনের পোশাক—সবকিছুর জন্য আমাদের কালেকশন দেখুন।</p></div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="title"><h2>Contact RS Fashion</h2><p>অর্ডার বা যেকোনো তথ্যের জন্য যোগাযোগ করুন</p></div>
+  <p>📞 01309835338</p>
+  <a class="btn" href="tel:01309835338">Call Now</a>
+  <div class="social">
+    <a href="#" target="_blank">Facebook</a>
+    <a href="#" target="_blank">Instagram</a>
+    <a href="https://wa.me/8801309835338" target="_blank">WhatsApp Order</a>
+  </div>
+</section>
+</main>
+
+<footer>© 2026 RS Fashion — All Rights Reserved.</footer>
+</body>
+</html>
