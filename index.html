@@ -5,21 +5,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="FIUS9BkzZSbmLMHH6jlUYleBlXiTZEFOTnuQB9pSdWU">
-<meta name="description" content="RS Fashion - Football jerseys and sports products in Bangladesh.">
-<title>RS Fashion - Football Jersey & Sports Store</title>
+<meta name="description" content="RS Fashion - Fashion, football jerseys and sports products in Bangladesh.">
+<title>RS Fashion - Online Fashion Store</title>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial,sans-serif;background:#0b0b0b;color:white}
 :root{--red:#e32636}
+body{font-family:Arial,sans-serif;background:#0b0b0b;color:white}
 a{text-decoration:none;color:inherit}
 
 header{
-background:#111;padding:18px 7%;
-display:flex;justify-content:space-between;
-align-items:center;border-bottom:1px solid #292929;
+background:#111;padding:18px 7%;display:flex;
+justify-content:space-between;align-items:center;
+border-bottom:1px solid #292929;
 position:sticky;top:0;z-index:10
 }
 .logo{font-size:27px;font-weight:900}
@@ -28,9 +28,8 @@ nav{display:flex;gap:22px;font-size:14px}
 nav a:hover{color:var(--red)}
 
 .hero{
-min-height:460px;padding:75px 8%;
-display:flex;align-items:center;
-background:linear-gradient(90deg,#090909,#202020)
+min-height:460px;padding:75px 8%;display:flex;
+align-items:center;background:linear-gradient(90deg,#090909,#202020)
 }
 .hero-content{max-width:650px}
 .tag{color:var(--red);font-weight:bold;letter-spacing:3px}
@@ -53,6 +52,19 @@ border:1px solid #292929;border-radius:9px
 }
 .team span{font-size:35px}
 .team h3{margin-top:10px}
+
+.filters{
+display:flex;justify-content:center;flex-wrap:wrap;
+gap:10px;margin:0 0 30px
+}
+.filter-btn{
+background:#171717;color:white;border:1px solid #444;
+padding:11px 17px;border-radius:5px;cursor:pointer;
+font-size:14px;font-weight:bold
+}
+.filter-btn:hover,.filter-btn.active{
+background:var(--red);border-color:var(--red);color:white
+}
 
 .products{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .card{
@@ -97,6 +109,7 @@ nav{display:none}
 section{padding:50px 6%}
 .card img{height:280px}
 .title h2{font-size:28px}
+.filter-btn{padding:10px 13px;font-size:13px}
 }
 </style>
 </head>
@@ -117,9 +130,9 @@ section{padding:50px 6%}
 <main>
 <section class="hero" id="home">
 <div class="hero-content">
-<div class="tag">RS FASHION • SPORTS COLLECTION</div>
-<h1>WEAR YOUR<br>TEAM. SHOW<br>YOUR PASSION.</h1>
-<p>আপনার পছন্দের ফুটবল ক্লাবের জার্সি ও স্পোর্টস পণ্য এখন RS Fashion-এ। পছন্দের পণ্য অর্ডার করুন সহজেই।</p>
+<div class="tag">RS FASHION • COLLECTION</div>
+<h1>WEAR YOUR<br>STYLE. SHOW<br>YOUR PASSION.</h1>
+<p>আপনার পছন্দের জার্সি, পোশাক ও ফ্যাশন পণ্য এখন RS Fashion-এ। পছন্দের পণ্য অর্ডার করুন সহজেই।</p>
 <a class="btn" href="#jersey">SHOP NOW →</a>
 </div>
 </section>
@@ -144,9 +157,10 @@ section{padding:50px 6%}
 <div class="title">
 <div class="tag">RS FASHION • COLLECTION</div>
 <h2>Our Products</h2>
-<p>আমাদের সকল পণ্য</p>
+<p>আপনার পছন্দের ক্যাটাগরি নির্বাচন করুন</p>
 </div>
 
+<div class="filters" id="categoryFilters"></div>
 <p id="status">পণ্য লোড হচ্ছে...</p>
 <div class="products" id="products"></div>
 </section>
@@ -157,7 +171,7 @@ section{padding:50px 6%}
 <h2 style="font-size:38px;margin-top:15px">YOUR STYLE. YOUR TEAM.</h2>
 </div>
 <div>
-<p>RS Fashion একটি অনলাইন Jersey & Sports Store। আপনার পছন্দের ফুটবল ক্লাব ও দেশের জার্সি সহজে অর্ডার করার জন্য আমরা কাজ করছি। আমাদের সঙ্গে থাকুন এবং নিজের পছন্দের টিমকে সাপোর্ট করুন।</p>
+<p>RS Fashion একটি অনলাইন Fashion & Sports Store। আপনার পছন্দের পোশাক, জার্সি ও ফ্যাশন পণ্য সহজে অর্ডার করার জন্য আমরা কাজ করছি। আমাদের সঙ্গে থাকুন।</p>
 </div>
 </section>
 
@@ -183,37 +197,87 @@ const SUPABASE_KEY = "sb_publishable_zr9y0xk9K07X3Af3xvcNmw_5LUdYGZh";
 
 const db = window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
 
-async function loadProducts(){
- const box = document.getElementById("products");
- const status = document.getElementById("status");
+const categoryOrder = [
+ "Jersey",
+ "T-Shirt",
+ "Shirt",
+ "Shoes",
+ "Watch",
+ "Accessories",
+ "Polo Shirt",
+ "Hoodie"
+];
 
- status.textContent = "পণ্য লোড হচ্ছে...";
+let allProducts = [];
+let selectedCategory = "All";
 
- const {data,error} = await db
-   .from("products")
-   .select("*")
-   .order("id",{ascending:false});
-
- if(error){
-   status.textContent = "পণ্য লোড করা যায়নি। পরে আবার চেষ্টা করুন।";
-   console.error(error);
-   return;
- }
-
+function renderFilters(){
+ const box = document.getElementById("categoryFilters");
  box.replaceChildren();
 
- if(!data || data.length===0){
+ const available = new Set(
+   allProducts
+    .map(p => (p.category || "").trim().toLowerCase())
+    .filter(Boolean)
+ );
+
+ const categories = categoryOrder.filter(
+   category => available.has(category.toLowerCase())
+ );
+
+ // নতুন কোনো ক্যাটাগরি যোগ হলেও সেটি দেখাবে
+ allProducts.forEach(p => {
+   const value = (p.category || "").trim();
+   if(value && !categories.some(c => c.toLowerCase() === value.toLowerCase())){
+     categories.push(value);
+   }
+ });
+
+ if(selectedCategory !== "All" &&
+    !categories.some(c => c.toLowerCase() === selectedCategory.toLowerCase())){
+   selectedCategory = "All";
+ }
+
+ ["All",...categories].forEach(category => {
+   const button = document.createElement("button");
+   button.className = "filter-btn" +
+     (selectedCategory.toLowerCase() === category.toLowerCase() ? " active" : "");
+   button.textContent = category === "All" ? "All Products" : category;
+   button.type = "button";
+
+   button.addEventListener("click",()=>{
+     selectedCategory = category;
+     renderFilters();
+     renderProducts();
+   });
+
+   box.appendChild(button);
+ });
+}
+
+function renderProducts(){
+ const box = document.getElementById("products");
+ const status = document.getElementById("status");
+ box.replaceChildren();
+
+ const filtered = selectedCategory === "All"
+   ? allProducts
+   : allProducts.filter(p =>
+       (p.category || "").trim().toLowerCase() === selectedCategory.toLowerCase()
+     );
+
+ if(filtered.length === 0){
    status.textContent = "";
    const empty = document.createElement("div");
    empty.className = "empty";
-   empty.textContent = "এখনো কোনো পণ্য যোগ করা হয়নি।";
+   empty.textContent = "এই ক্যাটাগরিতে এখনো কোনো পণ্য যোগ করা হয়নি।";
    box.appendChild(empty);
    return;
  }
 
- status.textContent = data.length + " টি পণ্য পাওয়া গেছে";
+ status.textContent = filtered.length + " টি পণ্য পাওয়া গেছে";
 
- data.forEach(p=>{
+ filtered.forEach(p=>{
    const card = document.createElement("div");
    card.className = "card";
 
@@ -233,7 +297,7 @@ async function loadProducts(){
 
    const category = document.createElement("div");
    category.className = "category";
-   category.textContent = p.category || "Sports";
+   category.textContent = p.category || "Fashion";
 
    const description = document.createElement("p");
    description.className = "description";
@@ -267,9 +331,27 @@ async function loadProducts(){
  });
 }
 
-loadProducts();
+async function loadProducts(){
+ const status = document.getElementById("status");
+ status.textContent = "পণ্য লোড হচ্ছে...";
 
-// প্রতি ৩০ সেকেন্ডে নতুন পণ্যের তথ্য পরীক্ষা করবে
+ const {data,error} = await db
+   .from("products")
+   .select("*")
+   .order("id",{ascending:false});
+
+ if(error){
+   status.textContent = "পণ্য লোড করা যায়নি। পরে আবার চেষ্টা করুন।";
+   console.error(error);
+   return;
+ }
+
+ allProducts = data || [];
+ renderFilters();
+ renderProducts();
+}
+
+loadProducts();
 setInterval(loadProducts,30000);
 </script>
 
