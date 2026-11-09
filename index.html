@@ -1,1 +1,189 @@
+```html
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="google-site-verification" content="FIUS9BkzZSbmLMHH6jlUYleBlXiTZEFOTnuQB9pSdWU" />
+
 <meta name="description" content="RS Fashion is an online store for football jerseys and sports products in Bangladesh. Explore your favorite team jerseys and order easily.">
+
+<title>RS Fashion - Football Jersey & Sports Store</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Arial,sans-serif;background:#0b0b0b;color:#fff}
+:root{--red:#e32636;--dark:#151515}
+a{text-decoration:none;color:inherit}
+
+header{
+background:#111;padding:17px 7%;
+display:flex;justify-content:space-between;
+align-items:center;position:sticky;top:0;
+z-index:99;border-bottom:1px solid #292929;
+}
+.logo{font-size:27px;font-weight:900}
+.logo span{color:var(--red);font-weight:400}
+nav{display:flex;gap:22px;font-size:14px}
+nav a:hover{color:var(--red)}
+
+.hero{
+min-height:550px;padding:80px 8%;
+display:flex;align-items:center;
+background:linear-gradient(90deg,#090909,#151515);
+}
+.hero-content{max-width:650px}
+.tag{color:var(--red);font-weight:bold;letter-spacing:3px;font-size:13px}
+h1{font-size:clamp(42px,7vw,75px);line-height:1.05;margin:20px 0}
+.hero p{color:#ccc;line-height:1.8;font-size:17px}
+.btn{
+display:inline-block;background:var(--red);color:white;
+padding:15px 27px;margin-top:25px;border-radius:5px;font-weight:bold;
+}
+.btn:hover,.buy:hover{background:#b91625}
+
+section{padding:70px 7%}
+.title{text-align:center;margin-bottom:35px}
+.title h2{font-size:32px;margin-top:10px}
+.title p{color:#aaa;margin-top:10px}
+
+.teams{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.team{
+background:#171717;padding:24px;text-align:center;
+border:1px solid #292929;border-radius:9px;
+}
+.team span{font-size:35px}
+.team h3{margin-top:10px}
+
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:#171717;border:1px solid #292929;border-radius:10px;overflow:hidden}
+.product-images{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.product-images img{width:100%;height:270px;object-fit:cover;background:#222}
+.card-body{padding:20px}
+.card h3{margin-bottom:12px}
+.price{font-size:24px;font-weight:bold;color:var(--red)}
+.buy{
+display:block;background:var(--red);text-align:center;
+padding:14px;margin-top:17px;border-radius:5px;font-weight:bold;
+}
+.about{
+background:#151515;display:grid;grid-template-columns:1fr 1fr;
+gap:40px;align-items:center;
+}
+.about p{color:#bbb;line-height:1.9;margin-top:15px}
+.contact{text-align:center}
+.contact p{color:#ccc;margin:12px}
+.social{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:20px}
+.social a{border:1px solid #444;padding:12px 20px;border-radius:5px}
+.social a:hover{border-color:var(--red);color:var(--red)}
+footer{
+text-align:center;background:#080808;color:#888;
+padding:25px;border-top:1px solid #292929;
+}
+
+@media(max-width:800px){
+nav{display:none}
+.hero{min-height:480px;padding:60px 7%}
+.teams{grid-template-columns:repeat(2,1fr)}
+.products{grid-template-columns:1fr}
+.about{grid-template-columns:1fr}
+section{padding:55px 6%}
+.product-images img{height:230px}
+.title h2{font-size:28px}
+}
+</style>
+</head>
+
+<body>
+<header>
+<div class="logo">RS <span>FASHION</span></div>
+<nav>
+<a href="#home">Home</a>
+<a href="#teams">Teams</a>
+<a href="#jersey">Jersey</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+<div class="hero-content">
+<div class="tag">RS FASHION • SPORTS COLLECTION 2026</div>
+<h1>WEAR YOUR<br>TEAM. SHOW<br>YOUR PASSION.</h1>
+<p>আপনার পছন্দের ফুটবল ক্লাবের জার্সি এখন RS Fashion-এ। পছন্দের জার্সি অর্ডার করুন সহজেই।</p>
+<a class="btn" href="#jersey">SHOP JERSEY →</a>
+</div>
+</section>
+
+<section id="teams">
+<div class="title">
+<div class="tag">YOUR FAVORITE CLUBS</div>
+<h2>Choose Your Team</h2>
+<p>আপনার পছন্দের টিম</p>
+</div>
+<div class="teams">
+<div class="team"><span>🇧🇷</span><h3>Brazil</h3></div>
+<div class="team"><span>🇦🇷</span><h3>Argentina</h3></div>
+<div class="team"><span>⚪</span><h3>Real Madrid</h3></div>
+<div class="team"><span>🔵🔴</span><h3>Barcelona</h3></div>
+<div class="team"><span>🔵</span><h3>PSG</h3></div>
+<div class="team"><span>🔴</span><h3>Liverpool</h3></div>
+</div>
+</section>
+
+<section id="jersey">
+<div class="title">
+<div class="tag">RS FASHION • NEW ARRIVAL</div>
+<h2>Football Jersey Collection</h2>
+<p>আপনার পছন্দের জার্সি অর্ডার করুন</p>
+</div>
+<div class="products">
+<div class="card">
+<div class="product-images">
+<img src="IMG_0029.jpeg" alt="Manchester City Jersey Front">
+<img src="IMG_0030.jpeg" alt="Manchester City Jersey Back">
+</div>
+<div class="card-body">
+<h3>Manchester City Jersey</h3>
+<div class="price">৳450</div>
+<a class="buy" href="https://wa.me/8801309835338?text=I%20want%20to%20order%20Manchester%20City%20Jersey%20for%20450%20Taka" target="_blank">ORDER NOW - WhatsApp</a>
+</div>
+</div>
+</div>
+</section>
+
+<section class="about" id="about">
+<div>
+<div class="tag">ABOUT RS FASHION</div>
+<h2 style="font-size:38px;margin-top:15px">YOUR STYLE. YOUR TEAM.</h2>
+</div>
+<div>
+<p>RS Fashion একটি অনলাইন Jersey & Sports Store। আপনার পছন্দের ফুটবল ক্লাব ও দেশের জার্সি সহজে অর্ডার করার জন্য আমরা কাজ করছি। আমাদের সঙ্গে থাকুন এবং নিজের পছন্দের টিমকে সাপোর্ট করুন।</p>
+</div>
+</section>
+
+<section class="contact" id="contact">
+<div class="title">
+<div class="tag">GET IN TOUCH</div>
+<h2>Contact RS Fashion</h2>
+<p>অর্ডার বা বিস্তারিত জানতে যোগাযোগ করুন</p>
+</div>
+<p>📞 01309835338</p>
+<a class="btn" href="tel:01309835338">CALL NOW</a>
+<div class="social">
+<a href="#">Facebook</a>
+<a href="#">Instagram</a>
+<a href="https://wa.me/8801309835338" target="_blank">WhatsApp</a>
+</div>
+</section>
+</main>
+
+<footer>
+© 2026 RS Fashion — All Rights Reserved.
+</footer>
+</body>
+</html>
+```
